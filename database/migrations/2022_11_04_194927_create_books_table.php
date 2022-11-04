@@ -17,12 +17,14 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('isbn');
-            $table->string('cover_image');
+            $table->string('cover_image')->nullable();
             $table->integer('revision_number');
             $table->timestamp('published_date');
             $table->string('publisher');
             $table->string('author');
             $table->string('genre');
+            $table->text('synopsis')->nullable();
+            $table->timestamp('added_date')->nullable();
             $table->timestamps();
         });
     }
