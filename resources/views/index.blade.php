@@ -1,6 +1,6 @@
 <x-layout>
 
-    <x-breadcrumb>
+    <x-breadcrumb :pageHeader="$pageHeader" :crumbSuffix="$crumbSuffix">
 
     </x-breadcrumb>
 
@@ -9,7 +9,7 @@
    <div class="row">
         <div class="col-md-9 mb-2 col-xl-9">&nbsp;</div>
         <div class="col-md-3 col-xl-3">
-            <a href="/book" class="btn btn-info fa fa-plus">
+            <a href="/book" class="btn btn-info fa fa-plus float-right">
                 Add Book To Library
             </a>
         </div>

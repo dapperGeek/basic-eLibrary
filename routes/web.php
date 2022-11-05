@@ -32,3 +32,9 @@ Route::post('authenticateUser', [UserController::class, 'authenticateUser']);
 
 //Logs out user
 Route::get('/logout', [UserController::class, 'logoutUser'])->middleware('auth');
+
+//Displays form to add new book to library
+Route::get('/book', [BookController::class, 'book'])->middleware('auth');
+
+//Adds new book to library
+Route::post('/addBook', [BookController::class, 'addBook'])->name('create_book');
