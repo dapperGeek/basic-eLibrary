@@ -23,6 +23,13 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        Book::factory(65)->create();
+        // Book::factory(65)->create();
+
+        \App\Models\Role::factory()->create([
+            'role' => 'Librarian'
+        ]);
+        \App\Models\Role::factory()->create([
+            'role' => 'Reader'
+        ]);
     }
 }
