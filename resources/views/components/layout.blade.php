@@ -22,7 +22,11 @@
     <!-- vendor css -->
     <link rel="stylesheet" href="assets/css/style.css">
     
-    
+    <!-- datatables css -->
+	<link rel="stylesheet" href="datatables/datatables.min.css">
+
+	<!-- custom dev css -->
+	<link rel="stylesheet" href="custom/css/style.css">
 
 </head>
 <body class="">
@@ -51,14 +55,6 @@
 							<li class="list-group-item"><a href="user-profile.html"><i class="feather icon-user m-r-5"></i>View Profile</a></li>
 							<li class="list-group-item"><a href="#!"><i class="feather icon-settings m-r-5"></i>Settings</a></li>
 							<li class="list-group-item"><a href="/logout"><i class="feather icon-log-out m-r-5"></i>Logout</a></li>
-							{{-- <li class="list-group-item"><a href="/logout">
-								<form class="inline" method="POST" action="/logout">
-									@csrf
-									<button type="submit">
-									  <i class="fa-solid fa-door-closed"></i> Logout
-									</button>
-								  </form>
-							</li> --}}
 						</ul>
 					</div>
 				</div>
@@ -403,6 +399,12 @@
 
 <!-- custom-chart js -->
 <script src="assets/js/pages/dashboard-main.js"></script>
+
+<!-- datatables js -->
+<script src="datatables/datatables.min.js"></script>
+
+<!-- custom dev js -->
+<script src="custom/js/datatables-init.js"></script>
 </body>
 
 </html>

@@ -1,3 +1,6 @@
 .auth-wrapper {
     background-image: url('../images/library.jpg');
 }
+a.btn.btn-md.btn-primary {
+    display: none !important;
+}
