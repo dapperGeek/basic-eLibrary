@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\UserController;
@@ -58,3 +59,15 @@ Route::post('/check-in', [BookController::class, 'checkInBook'])->middleware('au
 
 //Displays checked out books
 Route::get('/books/checked-out', [BookController::class, 'checkedOutBooks'])->middleware('auth');
+
+//Preview email
+Route::get('/reader-mail', function () {
+    $reminder = DB::table('check_outs')
+        ->join('users', 'check_outs.user_id', '=', 'users.id')
+        ->join('books', 'check_outs.book_id', '=', 'books.id')
+        ->where('check_outs.check_out_status', '!=', 1)
+        ->first();
+
+    // dd($reminder);
+    return new \App\Mail\ReaderReminderMail($reminder);
+});

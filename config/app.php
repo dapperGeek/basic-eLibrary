@@ -211,6 +211,8 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Utilities' => App\Custom\Utilities::class,
+        'ReaderReminderTask' => App\Custom\ScheduledTasks\ReaderReminderTask::class,
+        'AdminReminderTask' => App\Custom\ScheduledTasks\AdminReminderTask::class,
     ])->toArray(),
 
 ];

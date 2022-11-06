@@ -162,6 +162,8 @@ class BookController extends Controller
     //Retrieves & displays checked out books
     public function checkedOutBooks()
     {
+        $this->pageAuthorizationGuard();
+
         $data = [];
         $data['pageHeader'] = 'Books List';
         $data['crumbSuffix'] = 'Library';
