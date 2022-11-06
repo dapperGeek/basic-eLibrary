@@ -4,3 +4,22 @@
 a.btn.btn-md.btn-primary {
     display: none !important;
 }
+.table-thumb {
+    width: 90%;
+    border-radius: 5%;
+}
+.read-img {
+    width: 80%;
+    border-radius: 5%;
+}
+.btn {
+    min-width: 125px;
+}
+.info {
+    color: blue;
+    font-style: italic;
+}
+.danger {
+    color: red;
+    font-style: italic;
+}

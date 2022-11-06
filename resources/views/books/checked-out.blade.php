@@ -40,28 +40,28 @@
                                 TITLE
                             </th>
                             <th>
-                                ISBN
+                                READER
                             </th>
                             <th>
-                                DATE PUBLISHED
+                                CHECKED OUT
                             </th>
                             <th>
-                                PUBLISHER
+                                EXPECTED CHECK IN
                             </th>
                             <th>
-                                AUTHOR
+                                STATUS
                             </th>
-                            <th>
-                                GENRE
-                            </th>
+                            
                         </tr>
                     </thead>
                     <tbody>
             
                         @php
                             foreach ($books as $book) {
-                                $date = strtotime($book->published_date);
-                                $dateFormatted = date('F j, Y', $date);
+                                $checkOutDate = $book->check_out_date;
+                                $expectedDate = $book->expected_date;
+                                $checkInDate = $book->check_in_date;
+                                $currentDate = date(Utilities::$DATE_FORMAT, time());
                         @endphp
                                 <tr>
                                     <td>
@@ -71,19 +71,25 @@
                                         <a href="/book/{{$book->id}}">{{$book->title}}</a>
                                     </td>
                                     <td>
-                                        {{$book->isbn}}
+                                        <img src="" alt="">
+                                        <br>
+                                        {{$book->name}}
+                                        <br>
+                                        {{$book->email}}
                                     </td>
                                     <td>
-                                        {{$dateFormatted}}
+                                        {{Utilities::displayDateFormat($checkOutDate)}}
                                     </td>
                                     <td>
-                                        {{$book->publisher}}
+                                        {{Utilities::displayDateFormat($expectedDate)}}
                                     </td>
                                     <td>
-                                        {{$book->author}}
-                                    </td>
-                                    <td>
-                                        {{$book->genre}}
+                                        @php
+                                            // Get days remaining or overdue warning
+                                            $warning = Utilities::getRemainingOrOver($expectedDate, $currentDate);
+                                            $warningClass = $expectedDate > $currentDate ? 'info' : 'danger';
+                                            echo '</br><span class="' . $warningClass .'">'. $warning . '</span>';
+                                        @endphp
                                     </td>
                                 </tr>
                         @php

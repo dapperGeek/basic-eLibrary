@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('book_id');
             $table->timestamp('check_out_date');
             $table->timestamp('expected_date')->nullable();
+            $table->timestamp('check_in_date')->nullable();
             $table->tinyInteger('check_out_status');
             $table->timestamps();
         });
