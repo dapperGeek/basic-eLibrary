@@ -25,15 +25,16 @@ class UserController extends Controller
 
         $userData = [
             'email' => $request->email,
-            'password' => bcrypt($request->password)
+            'password' => bcrypt($request->password),
+            'role_id' => $request->role_id
         ];
         
         $user = User::create($userData);
 
-        $userRole = UserRole::create([
-            'user_id' => $user->id,
-            'role_id' => $request->role_id
-        ]);
+        // $userRole = UserRole::create([
+        //     'user_id' => $user->id,
+        //     'role_id' => $request->role_id
+        // ]);
 
         auth()->login($user);
 

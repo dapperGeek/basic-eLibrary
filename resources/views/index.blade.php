@@ -9,9 +9,16 @@
    <div class="row">
         <div class="col-md-9 mb-2 col-xl-9">&nbsp;</div>
         <div class="col-md-3 col-xl-3">
-            <a href="/book" class="btn btn-info fa fa-plus float-right">
-                Add Book To Library
-            </a>
+            
+            @php //Show add book button if user is a librarian
+                if (auth()->user()->role_id == 1) {
+            @endphp
+                <a href="/book" class="btn btn-info fa fa-plus float-right">
+                    Add Book To Library
+                </a>
+            @php
+                }
+            @endphp
         </div>
    </div>
 

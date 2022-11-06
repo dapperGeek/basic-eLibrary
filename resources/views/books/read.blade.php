@@ -9,7 +9,13 @@
                 <div class="card-header">
                     <h4 class="mb-3 f-w-400">{{$book->title}}</h4>
 
+                    @php //Show add book button if user is a librarian
+                    if (auth()->user()->role_id == 1) {
+                @endphp
                     <a href="/book/{{$book->id}}/edit" class="btn btn-info fa fa-edit">Edit</a>
+                @php
+                    }
+                @endphp
                     
                 </div>
                 <div class="card-body">
