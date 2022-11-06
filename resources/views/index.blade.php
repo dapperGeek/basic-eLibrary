@@ -55,7 +55,7 @@
                         @endphp
                                 <tr>
                                     <td>
-                                        {{$book->title}}
+                                        <a href="/book/{{$book->id}}">{{$book->title}}</a>
                                     </td>
                                     <td>
                                         {{$book->isbn}}

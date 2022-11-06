@@ -38,3 +38,12 @@ Route::get('/book', [BookController::class, 'book'])->middleware('auth');
 
 //Adds new book to library
 Route::post('/addBook', [BookController::class, 'addBook'])->name('create_book');
+
+//Displays selected book to view
+Route::get('/book/{id}', [BookController::class, 'displayBook'])->middleware('auth');
+
+//Shows form to update book
+Route::get('/book/{id}/edit', [BookController::class, 'edit'])->middleware('auth');
+
+//Updates book
+Route::put('/updateBook', [BookController::class, 'updateBook'])->middleware('auth');

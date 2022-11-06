@@ -17,16 +17,16 @@
     <meta name="keywords" content="">
     <meta name="author" content="Phoenixcoded" />
     <!-- Favicon icon -->
-    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="{{asset('assets/images/favicon.ico')}}" type="image/x-icon">
 
     <!-- vendor css -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     
     <!-- datatables css -->
-	<link rel="stylesheet" href="datatables/datatables.min.css">
+	<link rel="stylesheet" href="{{asset('datatables/datatables.min.css')}}">
 
 	<!-- custom dev css -->
-	<link rel="stylesheet" href="custom/css/style.css">
+	<link rel="stylesheet" href="{{asset('custom/css/style.css')}}">
 
 </head>
 <body class="">
@@ -44,7 +44,7 @@
 				
 				<div class="">
 					<div class="main-menu-header">
-						<img class="img-radius" src="assets/images/user/avatar-2.jpg" alt="User-Profile-Image">
+						<img class="img-radius" src="{{asset('assets/images/user/avatar-2.jpg')}}" alt="User-Profile-Image">
 						<div class="user-details">
 							<span>John Doe</span>
 							<div id="more-details">UX Designer<i class="fa fa-chevron-down m-l-5"></i></div>
@@ -389,22 +389,22 @@
     <!-- Warning Section Ends -->
 
     <!-- Required Js -->
-    <script src="assets/js/vendor-all.min.js"></script>
-    <script src="assets/js/plugins/bootstrap.min.js"></script>
-    <script src="assets/js/pcoded.min.js"></script>
+    <script src="{{asset('assets/js/vendor-all.min.js')}}"></script>
+    <script src="{{asset('assets/js/plugins/bootstrap.min.js')}}"></script>
+    <script src="{{asset('assets/js/pcoded.min.js')}}"></script>
 
 <!-- Apex Chart -->
-<script src="assets/js/plugins/apexcharts.min.js"></script>
+<script src="{{asset('assets/js/plugins/apexcharts.min.js')}}"></script>
 
 
 <!-- custom-chart js -->
-<script src="assets/js/pages/dashboard-main.js"></script>
+<script src="{{asset('assets/js/pages/dashboard-main.js')}}"></script>
 
 <!-- datatables js -->
-<script src="datatables/datatables.min.js"></script>
+<script src="{{asset('datatables/datatables.min.js')}}"></script>
 
 <!-- custom dev js -->
-<script src="custom/js/datatables-init.js"></script>
+<script src="{{asset('custom/js/datatables-init.js')}}"></script>
 </body>
 
 </html>
