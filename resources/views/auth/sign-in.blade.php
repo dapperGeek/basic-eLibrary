@@ -20,14 +20,11 @@
                 @enderror
 
             </div>
-            <div class="custom-control custom-checkbox text-left mb-4 mt-2">
-                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                <label class="custom-control-label" for="customCheck1">Save credentials.</label>
-            </div>
+            
             <button type="submit" class="btn btn-block btn-primary mb-4">Sign In</button>
         </form>
     <hr>
-    <p class="mb-2 text-muted">Forgot password? <a href="auth-reset-password.html" class="f-w-400">Reset</a></p>
+    <p class="mb-2 text-muted"><a href="/docs" class="f-w-400">APP DOCUMENTATION</a></p>
     <p class="mb-0 text-muted">Don’t have an account? <a href="/register" class="f-w-400">Sign Up</a></p>
         
 </x-auth-layout>

@@ -4,8 +4,8 @@ namespace App\Custom;
 
 class Utilities {
 
-    static string $DATE_FORMAT = 'Y-m-d H:i:s';
-    static int $REMINDER_INTERVAL = 2;
+    const DATE_FORMAT = 'Y-m-d H:i:s';
+    const REMINDER_INTERVAL = 2;
     
     public static function getRemainingOrOver($expectedDate, $currentDate)
     {
@@ -36,7 +36,7 @@ class Utilities {
     public static function confirmToSend($expectedDate, $currentDate)
     {
         $remainingDaysCount = self::getRemainingDaysCount($expectedDate, $currentDate);
-        return $remainingDaysCount <= self::$REMINDER_INTERVAL;
+        return $remainingDaysCount <= self::REMINDER_INTERVAL;
     }
     
 

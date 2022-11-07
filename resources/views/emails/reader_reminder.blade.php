@@ -7,7 +7,9 @@
         <p>
             Hello {{$reminder->email}}, <br><br>
 
-            You have until 2 days to check in the book '{{$reminder->title}}', hope you have enjoyed reading. <br><br>
+            You have until {{date('F j, Y', strtotime($reminder->expected_date))}} to check in the book '{{$reminder->title}}' <br><br>
+            
+            Happy reading!!! <br><br>
 
             Kindly return on schedule.
             <br><br>

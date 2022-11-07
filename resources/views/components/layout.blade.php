@@ -44,16 +44,17 @@
 				
 				<div class="">
 					<div class="main-menu-header">
-						<img class="img-radius" src="{{asset('assets/images/user/avatar-2.jpg')}}" alt="User-Profile-Image">
+						<img class="img-radius" src="{{ auth()->user()->avatar != null ? asset('storage/' . auth()->user()->avatar) : asset('images/no-image.jpg') }}" alt="User-Profile-Image">
 						<div class="user-details">
-							<span>John Doe</span>
-							<div id="more-details">UX Designer<i class="fa fa-chevron-down m-l-5"></i></div>
+							<span>{{auth()->user()->name}}</span>
+							<div id="more-details">
+								{{ auth()->user()->role_id == 1 ? 'LIBRARIAN' : 'READER' }}
+							<i class="fa fa-chevron-down m-l-5"></i></div>
 						</div>
 					</div>
 					<div class="collapse" id="nav-user-link">
 						<ul class="list-unstyled">
-							<li class="list-group-item"><a href="user-profile.html"><i class="feather icon-user m-r-5"></i>View Profile</a></li>
-							<li class="list-group-item"><a href="#!"><i class="feather icon-settings m-r-5"></i>Settings</a></li>
+							<li class="list-group-item"><a href="/my-profile"><i class="feather icon-user m-r-5"></i>View Profile</a></li>
 							<li class="list-group-item"><a href="/logout"><i class="feather icon-log-out m-r-5"></i>Logout</a></li>
 						</ul>
 					</div>
@@ -114,7 +115,7 @@
 								</a>
 								<div class="dropdown-menu profile-notification ">
 									<ul class="pro-body">
-										<li><a href="user-profile.html" class="dropdown-item"><i class="fas fa-circle"></i> Profile</a></li>
+										<li><a href="/my-profile" class="dropdown-item"><i class="fas fa-circle"></i> Profile</a></li>
 										<li><a href="email_inbox.html" class="dropdown-item"><i class="fas fa-circle"></i> My Messages</a></li>
 										<li><a href="auth-signin.html" class="dropdown-item"><i class="fas fa-circle"></i> Lock Screen</a></li>
 									</ul>
@@ -254,7 +255,7 @@
 										</a>
 									</div>
 									<ul class="pro-body">
-										<li><a href="user-profile.html" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
+										<li><a href="/my-profile" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
 										<li><a href="email_inbox.html" class="dropdown-item"><i class="feather icon-mail"></i> My Messages</a></li>
 										<li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i> Lock Screen</a></li>
 									</ul>

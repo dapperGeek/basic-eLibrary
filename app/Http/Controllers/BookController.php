@@ -77,10 +77,6 @@ class BookController extends Controller
     //Opens page with form to add new book
     public function edit($id)
     {
-        // if (auth()->user()->role_id != 1) {
-        //     abort(403, 'Unauthorized action');
-        // }
-
         $this->pageAuthorizationGuard();
         
         $data = [];

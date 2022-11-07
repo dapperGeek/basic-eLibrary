@@ -17,14 +17,17 @@ class ReaderReminderTask {
         ->where('check_outs.check_out_status', '!=', 1)
         ->get();
 
-        foreach ($reminders as $reminder) {
-            $checkOutDate = $reminder->check_out_date;
-            $expectedDate = $reminder->expected_date;
-            $checkInDate = $reminder->check_in_date;
-            $currentDate = date(Utilities::$DATE_FORMAT, time());
+        if ($reminders != null) {
 
-            if ($currentDate < $expectedDate && Utilities::confirmToSend($expectedDate, $currentDate)) {
-                Mail::to($reminder->email)->send(new ReaderReminderMail($reminder));
+            foreach ($reminders as $reminder) {
+                $checkOutDate = $reminder->check_out_date;
+                $expectedDate = $reminder->expected_date;
+                $checkInDate = $reminder->check_in_date;
+                $currentDate = date(Utilities::DATE_FORMAT, time());
+    
+                if ($currentDate < $expectedDate && Utilities::confirmToSend($expectedDate, $currentDate)) {
+                    Mail::to($reminder->email)->send(new ReaderReminderMail($reminder));
+                }
             }
         }
     }

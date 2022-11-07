@@ -44,5 +44,7 @@
         </form>
     <hr>
     <p class="mb-2">Already have an account? <a href="/login" class="f-w-400">Sign In</a></p>
+    
+    <p class="mb-2"><a href="/docs" class="f-w-400">APP DOCUMENTATION</a></p>
 
 </x-auth-layout>

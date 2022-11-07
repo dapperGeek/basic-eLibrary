@@ -8,6 +8,10 @@ a.btn.btn-md.btn-primary {
     width: 90%;
     border-radius: 5%;
 }
+.table-thumb-sm {
+    width: 50%;
+    border-radius: 5%;
+}
 .read-img {
     width: 80%;
     border-radius: 5%;

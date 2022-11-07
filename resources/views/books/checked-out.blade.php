@@ -26,11 +26,11 @@
 
    <div class="row">
 
-        <div class="card">
+        <div class="card col-md-12 m-auto">
 
             <div class="card-body">
 
-                <table class="table table-striped table-bordered table-responsive" id="bookListTable">
+                <table class="table table-striped table-bordered" id="bookListTable">
                     <thead>
                         <tr>
                             <th>
@@ -61,21 +61,21 @@
                                 $checkOutDate = $book->check_out_date;
                                 $expectedDate = $book->expected_date;
                                 $checkInDate = $book->check_in_date;
-                                $currentDate = date(Utilities::$DATE_FORMAT, time());
+                                $currentDate = date(Utilities::DATE_FORMAT, time());
                         @endphp
                                 <tr>
                                     <td>
-                                        <img class="table-thumb" src="{{ $book->cover_image != null ? asset('storage/' . $book->cover_image) : asset('images/no-image.jpg') }}" alt="">
+                                        <img class="w-50" src="{{ $book->cover_image != null ? asset('storage/' . $book->cover_image) : asset('images/no-image.jpg') }}" alt="">
                                     </td>
                                     <td>
                                         <a href="/book/{{$book->id}}">{{$book->title}}</a>
                                     </td>
                                     <td>
-                                        <img src="" alt="">
+                                        <img class="w-25" src="{{$book->avatar != null ?  asset('storage/' . $book->avatar) : asset('images/no-image.jpg') }}" alt="">
                                         <br>
-                                        {{$book->name}}
+                                        <a href="/users/{{$book->user_id}}">{{$book->name}}</a>
                                         <br>
-                                        {{$book->email}}
+                                        <a href="/users/{{$book->user_id}}">{{$book->email}}</a>
                                     </td>
                                     <td>
                                         {{Utilities::displayDateFormat($checkOutDate)}}

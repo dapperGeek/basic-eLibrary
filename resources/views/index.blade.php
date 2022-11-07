@@ -26,11 +26,11 @@
 
    <div class="row">
 
-        <div class="card">
+        <div class="card col-md-12 m-auto">
 
             <div class="card-body">
 
-                <table class="table table-striped table-bordered table-responsive" id="bookListTable">
+                <table class="table table-striped table-bordered" id="bookListTable">
                     <thead>
                         <tr>
                             <th>
@@ -64,8 +64,8 @@
                                 $dateFormatted = date('F j, Y', $date);
                         @endphp
                                 <tr>
-                                    <td>
-                                        <img class="table-thumb" src="{{ $book->cover_image != null ? asset('storage/' . $book->cover_image) : asset('images/no-image.jpg') }}" alt="">
+                                    <td align="center">
+                                        <img class="w-50" src="{{ $book->cover_image != null ? asset('storage/' . $book->cover_image) : asset('images/no-image.jpg') }}" alt="">
                                     </td>
                                     <td>
                                         <a href="/book/{{$book->id}}">{{$book->title}}</a>

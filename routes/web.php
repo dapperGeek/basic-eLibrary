@@ -1,6 +1,9 @@
 <?php
 
+use App\Custom\Utilities;
+use App\Mail\ReaderReminderMail;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\UserController;
@@ -60,6 +63,23 @@ Route::post('/check-in', [BookController::class, 'checkInBook'])->middleware('au
 //Displays checked out books
 Route::get('/books/checked-out', [BookController::class, 'checkedOutBooks'])->middleware('auth');
 
+//User view own profile
+Route::get('/my-profile', [UserController::class, 'ownProfile'])->middleware('auth');
+
+//Update profile form
+Route::get('/my-profile/update', [UserController::class, 'updateForm'])->middleware('auth');
+
+//Update user profile
+Route::put('/update-profile', [UserController::class, 'updateProfile'])->middleware('auth');
+
+//Admin view users page
+Route::get('/users/{id}', [UserController::class, 'viewUser'])->middleware('auth');
+
+//Display documentation
+Route::get('/docs', function () {
+    return view('docs');
+});
+
 //Preview email
 Route::get('/reader-mail', function () {
     $reminder = DB::table('check_outs')
@@ -70,4 +90,29 @@ Route::get('/reader-mail', function () {
 
     // dd($reminder);
     return new \App\Mail\ReaderReminderMail($reminder);
+});
+
+//Test email sending 
+Route::get('/check-mail', function () {
+    
+    $reminders = DB::table('check_outs')
+    ->join('users', 'check_outs.user_id', '=', 'users.id')
+    ->join('books', 'check_outs.book_id', '=', 'books.id')
+    ->where('check_outs.check_out_status', '!=', 1)
+    ->get();
+
+    if ($reminders != null) {
+
+        foreach ($reminders as $reminder) {
+            $checkOutDate = $reminder->check_out_date;
+            $expectedDate = $reminder->expected_date;
+            $checkInDate = $reminder->check_in_date;
+            $currentDate = date(Utilities::DATE_FORMAT, time());
+
+            if ($currentDate < $expectedDate && Utilities::confirmToSend($expectedDate, $currentDate)) {
+                Mail::to($reminder->email)->send(new ReaderReminderMail($reminder));
+            }
+        }
+    }
+
 });

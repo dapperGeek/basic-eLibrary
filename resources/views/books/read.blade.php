@@ -68,7 +68,7 @@
                                         $checkOutDate = $checkStatus->check_out_date;
                                         $expectedDate = $checkStatus->expected_date;
                                         $checkInDate = $checkStatus->check_in_date;
-                                        $currentDate = date(Utilities::$DATE_FORMAT, time());
+                                        $currentDate = date(Utilities::DATE_FORMAT, time());
                                 @endphp
                                 {{-- Show Check in book button --}}
 
